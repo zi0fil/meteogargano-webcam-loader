@@ -1,0 +1,29 @@
+{
+	"webcams": [
+		{
+			"name": "chiancate",
+			"file_in": "webcam_chiancate.jpg",
+			"descr": "Agriturismo Chiancate - Vista Nord"
+		},
+		{
+			"name": "falcare",
+			"file_in": "webcam_falcare.jpg",
+			"descr": "Agriturismo Falcare"
+		},
+		{
+			"name": "vico2",
+			"file_in": "webcam_vico2.jpg",
+			"descr": "Vico del Gargano campagna"
+		},
+		{
+			"name": "vico",
+			"file_in": "webcam_vico.jpg",
+			"descr": "Vico del Gargano paese"
+		},
+		{
+			"name": "foresta",
+			"file_in": "webcam_foresta.jpg",
+			"descr": "Foresta Umbra - casa forestale"
+		}
+	]
+}
