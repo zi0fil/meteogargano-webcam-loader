@@ -22,7 +22,59 @@
 	SOFTWARE.
 */
 
-define('DEBUG',false);
+define('DEBUG', false);
+
+function process_data_in($data_in, $type) {
+	switch ($type) {
+		case "file":
+			return load_jpg($data_in);
+			break;
+		case "folder":
+			return load_jpg(get_last_and_remove_files($data_in));
+			break;
+		default:
+			debug("Invalid type");
+			return false;
+	}
+
+}
+
+function get_last_and_remove_files($folder)
+{
+	$dirlist = scandir_ (getcwd ( )  . "/" . $folder ,  '/^.*\.(jpg|JPG|jpeg|JPEG)$/i', 'ctime', 1);
+	array_walk($dirlist, function(&$item) use ($folder) { $item = getcwd ( )  . "/" . $folder . $item; });
+	if (count($dirlist) > 1) {
+		$new_file = array_shift($dirlist);
+		foreach($dirlist as $fileitem) {
+			unlink($fileitem);
+		}
+		return $new_file;
+	}
+	
+	return false;
+}
+
+function scandir_($dir, $exp, $how='name', $desc=0)
+{
+    $r = array();
+    $dh = @opendir($dir);
+    if ($dh) {
+        while (($fname = readdir($dh)) !== false) {
+            if (preg_match($exp, $fname)) {
+                $stat = stat("$dir/$fname");
+                $r[$fname] = ($how == 'name')? $fname: $stat[$how];
+            }
+        }
+        closedir($dh);
+        if ($desc) {
+            arsort($r);
+        }
+        else {
+            asort($r);
+        }
+    }
+    return(array_keys($r));
+} 
 
 function load_jpg($filename)
 {
@@ -66,7 +118,7 @@ if ($webcam_timestamp == NULL) {
 
 foreach($webcam_config->webcams as $webcam) {
 	if ($webcam->name == $webcam_selected) {
-		$jpg_content = load_jpg($webcam->file_in);
+		$jpg_content = process_data_in($webcam->data_in, $webcam->type);
 		$file_cache = $webcam->name . "_cache";
 		$jpg_content_cache = @file_get_contents($file_cache);
 		if ($jpg_content != FALSE) {

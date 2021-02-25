@@ -2,28 +2,45 @@
 	"webcams": [
 		{
 			"name": "chiancate",
-			"file_in": "webcam_chiancate.jpg",
-			"descr": "Agriturismo Chiancate - Vista Nord"
+			"data_in": "webcam_chiancate.jpg",
+			"descr": "Agriturismo Chiancate - Vista Nord",
+			"type": "file"
 		},
 		{
 			"name": "falcare",
-			"file_in": "webcam_falcare.jpg",
-			"descr": "Agriturismo Falcare"
+			"data_in": "webcam_falcare.jpg",
+			"descr": "Agriturismo Falcare",
+			"type": "file"
 		},
 		{
 			"name": "vico2",
-			"file_in": "webcam_vico2.jpg",
-			"descr": "Vico del Gargano campagna"
+			"data_in": "webcam_vico2.jpg",
+			"descr": "Vico del Gargano campagna",
+			"type": "file"
 		},
 		{
 			"name": "vico",
-			"file_in": "webcam_vico.jpg",
-			"descr": "Vico del Gargano paese"
+			"data_in": "webcam_vico.jpg",
+			"descr": "Vico del Gargano paese",
+			"type": "file"
 		},
 		{
 			"name": "foresta",
-			"file_in": "webcam_foresta.jpg",
-			"descr": "Foresta Umbra - casa forestale"
+			"data_in": "webcam_foresta.jpg",
+			"descr": "Foresta Umbra - casa forestale",
+			"type": "file"			
+		},
+		{
+			"name": "falcare2",
+			"data_in": "hikvision_falcare/",
+			"descr": "Falcare ex scuola",
+			"type": "folder"			
+		},
+		{
+			"name": "sgrpano",
+			"data_in": "http://webcam.meteogargano.org/360/panorama-sgr.html",
+			"descr": "San Giovanni Rotondo vista panoramica",
+			"type": "link"			
 		}
 	]
 }
